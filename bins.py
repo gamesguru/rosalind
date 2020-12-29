@@ -1,22 +1,22 @@
 def bin(input):
-    def index(e, A, p=None, q=None):
-        if p is None or q is None:
-            p = 0
-            q = len(A) - 1
+    def index(e, A):
+        p = 0
+        q = len(A) - 1
 
-        if p == q:
-            if A[p] == e:
-                return p
-            else:
-                return -1
-        else:
+        while q > p:
             i = (p + q) // 2
-            if e < A[i]:
-                return index(e, A, p=p, q=(i - 1))
-            elif e > A[i]:
-                return index(e, A, p=(i + 1), q=q)
+            if e == A[i]:
+                return i + 1
+            elif e < A[i]:
+                p = p
+                q = i - 1
             else:
-                return i
+                p = i + 1
+                q = q
+
+        if A[p] == e:
+            return p + 1
+        return -1
 
     lines = input.split("\n")
     n = int(lines[0])
@@ -26,7 +26,7 @@ def bin(input):
     ua = [int(x) for x in lines[3].split()]
 
     result = [index(x, sa) for x in ua]
-    print(result)
+    print(' '.join(str(x) for x in result))
     return result
 
 
