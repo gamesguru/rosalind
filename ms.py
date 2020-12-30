@@ -1,17 +1,38 @@
 
 def merge_sort(input):
-    def merge(a, b):
-        c = []
-        while a or b:
-            if not b:
-                c.append(a.pop(0))
-            elif not a:
-                c.append(b.pop(0))
-            elif a[0] < b[0]:
-                c.append(a.pop(0))
+    def merge(arr, l, m, r):
+
+        s1 = m - l + 1
+        s2 = r - m
+
+        # Copy split data into two temp arrays
+        L = arr[l:l + s1]
+        R = arr[m + 1: m + 1 + s2]
+
+        # Merge temp arrays back into arr[l..r]
+        i = 0
+        j = 0
+        k = l
+        while (i < s1 and j < s2):
+            if L[i] <= R[j]:
+                arr[k] = L[i]
+                i += 1
             else:
-                c.append(b.pop(0))
-        return c
+                arr[k] = R[j]
+                j += 1
+            k += 1
+
+        # Copy any remaining elements of L[]
+        while i < s1:
+            arr[k] = L[i]
+            i += 1
+            k += 1
+
+        # Copy any remaining elements of R[]
+        while i < s2:
+            arr[k] = R[j]
+            j += 1
+            k += 1
 
     lines = input.split('\n')
     # n = int(lines[0])
@@ -23,25 +44,12 @@ def merge_sort(input):
         for i in range(0, l - 1, 2 * n):
             mid = min(i + n - 1, l - 1)
             j = min(i + 2 * n - 1, l - 1)
+            # Pseudo in-place merge (uses log(n) auxillary space)
             merge(arr, i, mid, j)
         n *= 2
-    # i = n // 2
-    # result = merge(arr[:i], arr[i:])
-    # print(result)
 
-    # curr_size = 1
-    # left_start = 0
-
-
-
-
-    # i = n // 2
-    # arr1 = arr[0:i]
-    # arr2 = arr[i:n]
-
-    # # TODO: implement custom sort method :)
-    # arr1 = sort(arr1)
-    # arr2 = sort(arr2)
+    # Print result
+    print(arr)
 
 
 
