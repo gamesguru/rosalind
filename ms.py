@@ -49,12 +49,12 @@ def merge_sort(input):
         n *= 2
 
     # Print result
-    print(arr)
+    print(' '.join(str(x) for x in arr))
 
 
 
 merge_sort("""10
 20 19 35 -18 17 -20 20 1 4 4""")
 
-# with open('ms.txt') as ms:
-#     merge(ms.read())
+with open('ms.txt') as ms:
+    merge_sort(ms.read())
