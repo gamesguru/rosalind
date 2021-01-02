@@ -7,11 +7,11 @@ def par(input):
     l = 1
     r = n - 1
     while l < r:
-        for i in range(1, n):
+        for i in range(l, n):
             if a[i] > a0:
                 l = i
                 break
-        for j in range(n - 1, 0, -1):
+        for j in range(r, 0, -1):
             if a[j] <= a0:
                 r = j
                 break
@@ -22,11 +22,11 @@ def par(input):
             a[0], a[r] = a[r], a[0]
             break
 
-    # while r > 1:
-    for i in range(r, 0, -1):
-        if a[i] == a0:
-            a[i], a[]
-        pass
+    # l = 1
+    # while l < r:
+    #     for i in range(l, r):
+    #         if a[i]
+
     print(a)
 
 
