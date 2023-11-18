@@ -84,10 +84,20 @@ class GraphUnDirected:
         This time, I'll use a recursive instead of iterative method.
         """
 
-        # Use a depth first search to look for cycles (no dynamic programming)
+        def loopback(n: int, vertex: Vertex, paths: list) -> tuple[int, list]:
+            """Recursive call"""
+
+            return n, paths
+
+        # Use a depth first search to look for cycles (naive, no dynamic programming)
+        paths = []
+
+        vertex = self.vertexes[0]
+        queue = [vertex.edges]
         for vertex in self.vertexes:
-            for edge in vertex.edges:
-                paths = []
+            n, paths = loopback(n=n, vertex=vertex, paths=paths)
+            # for edge in vertex.edges:
+            #     paths = []
 
             # for i in range(4):
 
