@@ -1,4 +1,3 @@
-
 def merge_sort(input):
     def merge(arr, l, m, r):
 
@@ -6,14 +5,16 @@ def merge_sort(input):
         s2 = r - m
 
         # Copy split data into two temp arrays
-        L = arr[l:l + s1]
+        # fmt: off
+        L = arr[l: l + s1]
         R = arr[m + 1: m + 1 + s2]
+        # fmt: on
 
         # Merge temp arrays back into arr[l..r]
         i = 0
         j = 0
         k = l
-        while (i < s1 and j < s2):
+        while i < s1 and j < s2:
             if L[i] <= R[j]:
                 arr[k] = L[i]
                 i += 1
@@ -34,7 +35,7 @@ def merge_sort(input):
             j += 1
             k += 1
 
-    lines = input.split('\n')
+    lines = input.split("\n")
     # n = int(lines[0])
     arr = [int(x) for x in lines[1].split()]
     l = len(arr)
@@ -49,12 +50,13 @@ def merge_sort(input):
         n *= 2
 
     # Print result
-    print(' '.join(str(x) for x in arr))
+    print(" ".join(str(x) for x in arr))
 
 
+merge_sort(
+    """10
+20 19 35 -18 17 -20 20 1 4 4"""
+)
 
-merge_sort("""10
-20 19 35 -18 17 -20 20 1 4 4""")
-
-with open('ms.txt') as ms:
+with open("ms.txt") as ms:
     merge_sort(ms.read())

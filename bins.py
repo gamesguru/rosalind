@@ -19,14 +19,14 @@ def bin(input):
         return -1
 
     lines = input.split("\n")
-    n = int(lines[0])
-    m = int(lines[1])
+    # n = int(lines[0])
+    # m = int(lines[1])
 
     sa = [int(x) for x in lines[2].split()]
     ua = [int(x) for x in lines[3].split()]
 
     result = [index(x, sa) for x in ua]
-    print(' '.join(str(x) for x in result))
+    print(" ".join(str(x) for x in result))
     return result
 
 
@@ -36,4 +36,3 @@ bin(
 10 20 30 40 50
 40 10 35 15 40 20"""
 )
-

@@ -44,7 +44,8 @@ class GraphDirected:
     def __str__(self):
         return (
             f"{self.__class__.__name__}"
-            + f"(n_vertexes={len(self.vertexes)}, n_edges={sum(len(x.edges) for x in self.vertexes)})"
+            + f"(n_vertexes={len(self.vertexes)}, "
+            + f"n_edges={sum(len(x.edges) for x in self.vertexes)})"
         )
 
     def add_edge(self, id_vertex_from, id_vertex_to):

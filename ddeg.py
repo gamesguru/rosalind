@@ -10,6 +10,7 @@
 
 input_data = open("input/rosalind_ddeg.txt", "r").read().strip()
 
+
 class Vertex:
     def __init__(self):
         """Create a lone vertex"""
@@ -17,7 +18,9 @@ class Vertex:
         self.adjacent_vertexes = set()
 
     def __str__(self):
-        return f"Vertex(degree={self.degree}, adjacent_vertexes={self.adjacent_vertexes})"
+        return (
+            f"Vertex(degree={self.degree}, adjacent_vertexes={self.adjacent_vertexes})"
+        )
 
 
 class Graph:
@@ -45,7 +48,7 @@ class Graph:
         self.vertexes[id_vertex_to].adjacent_vertexes.add(id_vertex_from)
 
     def double_degrees(self):
-        degrees = ''
+        degrees = ""
         for vertex in self.vertexes:
             print(vertex)
             # degree = vertex.degree
@@ -55,8 +58,6 @@ class Graph:
             degrees += f"{degree} "
 
         return degrees
-
-
 
 
 for i, line in enumerate(input_data.strip().split("\n")):
@@ -78,4 +79,3 @@ for i, line in enumerate(input_data.strip().split("\n")):
 # print(" ".join(str(x) for x in vertex_degrees))
 print(graph)
 print(graph.double_degrees())
-

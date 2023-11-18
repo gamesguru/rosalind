@@ -29,4 +29,3 @@ for i, line in enumerate(input_data.strip().split("\n")):
     vertex_degrees[id_vertex_to - 1] += 1
 
 print(" ".join(str(x) for x in vertex_degrees))
-

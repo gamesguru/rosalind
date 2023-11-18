@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import math
-
 # input_data = """
 # 4 5
 # 2 -3 4 10 5
@@ -12,8 +10,8 @@ import math
 
 input_data = open("input/rosalind_2sum.txt", "r").read().strip()
 
-def get_2sum():
 
+def get_2sum():
     def process_line():
         for i, item in enumerate(line.split()):
             item = int(item)
